@@ -12,5 +12,10 @@ public class MainController {
 	public String index() {
 		return "Hello World";
 	}
+	
+	@GetMapping("/")
+	public String root() {
+		return "redirect:/question/list";
+	}
 
 }
