@@ -26,7 +26,7 @@ public class Question {
 	private String subject;
 	
 	@Column(columnDefinition = "TEXT")
-	private String contetn;
+	private String content;
 	
 	private LocalDateTime createDate;
 
