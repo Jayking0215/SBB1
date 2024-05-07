@@ -28,7 +28,6 @@ public class QuestionController {
 	private final QuestionService questionService;
 	private final UserService userService;
 	
-	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/list")
 //	@ResponseBody
 	public String list(Model model,
@@ -39,7 +38,6 @@ public class QuestionController {
 		return "question_list";
 	}
 
-	@PreAuthorize("isAuthenticated()")
 	@GetMapping(value = "/detail/{id}")
 	public String detail(
 			Model model, 
@@ -50,11 +48,13 @@ public class QuestionController {
 		return "question_detail";
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/create")
 	public String questionCraete(QuestionForm questoinForm) {
 		return "question_form";
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/create")
 	public String questionCreate(
 			@Valid QuestionForm questionForm, 
@@ -63,7 +63,9 @@ public class QuestionController {
 		if (bindingResult.hasErrors()) {
 			return "question_form";
 		}
+		
 		SiteUser siteUser = this.userService.getUser(principal.getName());
+		
 		this.questionService.create(
 				questionForm.getSubject(), 
 				questionForm.getContent(),

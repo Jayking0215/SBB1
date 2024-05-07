@@ -22,10 +22,11 @@ public class QuestionService {
 	
 	private final QuestionRepository questionRepository;
 	
-	public List<Question> getList(){
-		List<Sort.Order> sorts =  new ArrayList<>();
+	public Page<Question> getList(int page) {
+		List<Sort.Order> sorts = new ArrayList<>();
 		sorts.add(Sort.Order.desc("createDate"));
-		return this.questionRepository.findAll();
+		Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
+		return this.questionRepository.findAll(pageable);
 	}
 	
 	public Question getQuestion(Integer id) {
@@ -38,18 +39,14 @@ public class QuestionService {
 	}
 	
 	public void create(String subject, 
-			String content,
+			String content, 
 			SiteUser user) {
         Question q = new Question();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
+        q.setAuthor(user);
         this.questionRepository.save(q);
     }
-	
-	public Page<Question> getList(int page){
-		Pageable pageable = PageRequest.of(page, 10);
-		return this.questionRepository.findAll(pageable);
-	}
 
 }
