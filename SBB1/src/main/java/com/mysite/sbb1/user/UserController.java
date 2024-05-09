@@ -39,8 +39,10 @@ public class UserController {
                     userCreateForm.getEmail(), 
                     userCreateForm.getPassword1(),
                     userCreateForm.getNickName(),
-                    userCreateForm.getAddress());
-            
+                    userCreateForm.getZipcode(),
+                    userCreateForm.getStreetAdr(),
+                    userCreateForm.getDetailAdr()
+                    );
         }catch(DataIntegrityViolationException e) {
             e.printStackTrace();
             bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");

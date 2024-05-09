@@ -29,6 +29,12 @@ public class SiteUser {
 	private String nickName;
 	
 	@Column
-	private String address;
+	private String zipcode;
+
+	@Column
+	private String streetAdr;
+	
+	@Column
+	private String detailAdr;
 
 }

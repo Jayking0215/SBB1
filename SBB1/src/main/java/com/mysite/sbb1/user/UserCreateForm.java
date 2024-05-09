@@ -26,5 +26,9 @@ public class UserCreateForm {
 	
 	private String nickName;
 	
-	private String address;
+	private String zipcode;
+	
+	private String streetAdr;
+	
+	private String detailAdr;
 }
