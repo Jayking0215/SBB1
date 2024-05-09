@@ -24,5 +24,11 @@ public class SiteUser {
 	
 	@Column(unique = true)
 	private String email;
+	
+	@Column
+	private String name;
+	
+	@Column
+	private String addr;
 
 }

@@ -14,11 +14,12 @@
 	<table class="table">
 		<thead class="table-dark">
 			<tr class="text-center">
-				<th>번호</th>
-				<th style="width:50%">제목</th>
-				<th>글쓴이</th>
-				<th>작성일시</th>
+				<th style="width:10%">번호</th>
+				<th style="width:40%">제목</th>
+				<th style="width:20%">글쓴이</th>
+				<th style="width:30%">작성일시</th>
 			</tr>
+		</thead>
 		<table class="table">
 		<tbody>
 			<tr class="text-center" th:each="question, loop : ${paging}">
@@ -35,8 +36,8 @@
 		</tbody>
 	</table>
 		
-		<!-- Pagination -->
-	    <div th:if="${!paging.isEmpty()}">
+	<!-- Pagination -->
+    <div th:if="${!paging.isEmpty()}">
 		<ul class="pagination justify-content-center">
 			<li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
 				<a class="page-link" href="javascript:void(0)" th:data-page="${paging.number-1}">
@@ -55,12 +56,12 @@
 			</li>
 		</ul>
 	</div>
-		
-		<form th:action="@{/question/list}" method="get" id="searchForm">
-	        <input type="hidden" id="kw" name="kw" th:value="${kw}">
-	        <input type="hidden" id="page" name="page" th:value="${paging.number}">
-	    </form>
-	</div>
+	
+	<form th:action="@{/question/list}" method="get" id="searchForm">
+        <input type="hidden" id="kw" name="kw" th:value="${kw}">
+        <input type="hidden" id="page" name="page" th:value="${paging.number}">
+    </form>
+</div>
 	
 	<script layout:fragment="script" type='text/javascript'>
 		const page_elements = document.getElementsByClassName("page-link");
@@ -73,7 +74,7 @@
 		const btn_search = document.getElementById("btn_search");
 		btn_search.addEventListener('click', function () {
 			document.getElementById('kw').value = document.getElementById('search_kw').value;
-			document.getElementById('page').value = 0;  // 검색버튼을 클릭할 경우 0페이지부터 조회한다.
+			document.getElementById('page').value = 0;
 			document.getElementById('searchForm').submit();
 		});
 	</script>
