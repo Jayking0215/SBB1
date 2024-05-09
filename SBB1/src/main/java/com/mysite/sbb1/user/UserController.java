@@ -37,7 +37,9 @@ public class UserController {
             userService.create(
             		userCreateForm.getUsername(), 
                     userCreateForm.getEmail(), 
-                    userCreateForm.getPassword1());
+                    userCreateForm.getPassword1(),
+                    userCreateForm.getNickName(),
+                    userCreateForm.getAddress());
             
         }catch(DataIntegrityViolationException e) {
             e.printStackTrace();

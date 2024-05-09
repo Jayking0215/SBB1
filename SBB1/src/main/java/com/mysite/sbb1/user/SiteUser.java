@@ -26,9 +26,9 @@ public class SiteUser {
 	private String email;
 	
 	@Column
-	private String name;
+	private String nickName;
 	
 	@Column
-	private String addr;
+	private String address;
 
 }
