@@ -29,9 +29,9 @@
 		</div>
 		<div class="mb-3">
 		    <label for="zipcode" class="form-label">우편번호</label>
-		    <input type="text" th:field="*{zipcode}" class="form-control" readonly>
+		    <input type="text" th:field="*{zipcode}" class="form-control" readonly onclick="sample6_execDaumPostcode()">
 		</div>
-		<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+		<!-- <input type="button"  value="우편번호 찾기"><br> -->
 		<div class="mb-3">
 		    <label for="streetAdr" class="form-label">도로명 주소</label>
 		    <input type="text" th:field="*{streetAdr}" class="form-control" readonly>
