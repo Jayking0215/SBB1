@@ -29,9 +29,9 @@
 		</div>
 		<div class="mb-3">
 		    <label for="zipcode" class="form-label">우편번호</label>
-		    <input type="text" th:field="*{zipcode}" class="form-control" readonly onclick="sample6_execDaumPostcode()">
+		    <input type="text" th:field="*{zipcode}" class="form-control" readonly>
 		</div>
-		<!-- <input type="button"  value="우편번호 찾기"><br> -->
+		<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 		<div class="mb-3">
 		    <label for="streetAdr" class="form-label">도로명 주소</label>
 		    <input type="text" th:field="*{streetAdr}" class="form-control" readonly>
@@ -43,7 +43,6 @@
         <button type="submit" class="btn btn-primary">회원가입</button>
     </form>
 </div>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function sample6_execDaumPostcode() {
         new daum.Postcode({
@@ -81,4 +80,5 @@
         }).open();
     }
 </script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </html>
