@@ -16,7 +16,8 @@ public class MainController {
 	@GetMapping("/")
 	public String root() {
 //		TODO : 로그인 랜딩페이지로 변경 
-		return "redirect:/question/list";
+//		return "redirect:/question/list";
+		return "index";
 	}
-
 }
+	
